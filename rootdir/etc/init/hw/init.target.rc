@@ -120,6 +120,10 @@ on boot
    insmod /system/lib/modules/msm-vidc-dyn-gov.ko
    insmod /system/lib/modules/msm-vidc-table-gov.ko
 
+#Smart Charging
+   chmod 0666 /sys/devices/platform/lge-unified-nodes/charging_enable
+   chown system system /sys/devices/platform/lge-unified-nodes/charging_enable
+
 #Load WLAN driver
 #   insmod /vendor/lib/modules/qca_cld3_wlan.ko
 
