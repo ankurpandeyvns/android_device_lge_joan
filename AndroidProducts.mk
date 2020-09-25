@@ -1,6 +1,5 @@
-#!/bin/bash
 #
-# Copyright (C) 2017 The LineageOS Project
+# Copyright 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,10 +14,9 @@
 # limitations under the License.
 #
 
-set -e
+PRODUCT_MAKEFILES += \
+    $(LOCAL_DIR)/lineage_joan.mk
 
-export DEVICE=h930
-export DEVICE_COMMON=joan-common
-export VENDOR=lge
-
-./../$DEVICE_COMMON/setup-makefiles.sh $@
+COMMON_LUNCH_CHOICES := \
+    lineage_joan-userdebug \
+    lineage_joan-eng

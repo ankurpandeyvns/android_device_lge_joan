@@ -14,7 +14,15 @@
 # limitations under the License.
 #
 
-COMMON_PATH := device/lge/joan-common
+DEVICE_PATH := device/lge/h930
+
+TARGET_OTA_ASSERT_DEVICE := v30,joan,h930,h932
+
+# Kernel
+TARGET_KERNEL_CONFIG := lineageos_h930_defconfig
+
+# inherit from the proprietary version
+-include vendor/lge/joan/BoardConfigVendor.mk
 
 # inherit from common lge
 -include device/lge/common/BoardConfigCommon.mk
@@ -98,7 +106,7 @@ AUDIO_FEATURE_ENABLED_SND_MONITOR := true
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
@@ -113,7 +121,7 @@ USE_CAMERA_STUB := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Custom Apns for Sprint
-CUSTOM_APNS_FILE := $(COMMON_PATH)/sprint_apns.xml
+CUSTOM_APNS_FILE := $(DEVICE_PATH)/sprint_apns.xml
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -141,9 +149,9 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
-DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
-TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_lge_msm8998
@@ -178,8 +186,11 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # Recovery
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.joan
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.joan
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
