@@ -26,6 +26,8 @@ PRODUCT_MODEL := joan
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_RELEASE_NAME := V30
 
+TARGET_DISABLES_GAPPS := true
+
 PRODUCT_GMS_CLIENTID_BASE := android-om-lg
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
@@ -176,6 +178,16 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.2-service.clearkey
+
+# Face Unlock
+TARGET_FACE_UNLOCK_SUPPORTED := false
+ifneq ($(TARGET_DISABLE_ALTERNATIVE_FACE_UNLOCK), true)
+PRODUCT_PACKAGES += \
+    FaceUnlockService
+TARGET_FACE_UNLOCK_SUPPORTED := true
+endif
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.face.moto_unlock_service=$(TARGET_FACE_UNLOCK_SUPPORTED)
 
 #Filesystem management tools
 PRODUCT_PACKAGES += \
