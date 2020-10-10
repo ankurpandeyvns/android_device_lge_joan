@@ -23,7 +23,12 @@
     <privapp-permissions package="com.android.hotwordenrollment.xgoogle">
         <permission name="android.permission.MANAGE_VOICE_KEYPHRASES"/>
     </privapp-permissions>
+
     <privapp-permissions package="com.android.hotwordenrollment.okgoogle">
         <permission name="android.permission.MANAGE_VOICE_KEYPHRASES"/>
+    </privapp-permissions>
+
+    <privapp-permissions package="org.codeaurora.gallery">
+        <permission name="android.permission.MODIFY_AUDIO_ROUTING"/>
     </privapp-permissions>
 </permissions>
