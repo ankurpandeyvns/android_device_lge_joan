@@ -200,12 +200,14 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.joan
 ENABLE_VENDOR_RIL_SERVICE := true
 TARGET_RIL_VARIANT := caf
 
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
+
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += device/lge/joan-common/sepolicy/vendor
 #BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/lge/joan-common/sepolicy/private
 SELINUX_IGNORE_NEVERALLOWS := true
-TARGET_EXCLUDE_QCOM_SEPOLICY := true
 
 # Timeservice
 BOARD_USES_QC_TIME_SERVICES := true

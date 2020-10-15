@@ -478,11 +478,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
-# Wifi IPA
-PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml
-
 # WiFi Display
 PRODUCT_PACKAGES += \
     libaacwrapper \
